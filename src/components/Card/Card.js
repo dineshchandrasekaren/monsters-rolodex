@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 class Card extends Component {
-    state = {  } 
-    render() { 
+    state = {}
+    render() {
         return (<div>
             <h1 key={this.props.id}>{this.props.name}</h1>
-            </div>);
+        </div>);
     }
 }
- 
+
 export default Card;

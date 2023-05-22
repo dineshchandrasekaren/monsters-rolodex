@@ -8,25 +8,26 @@ class App extends Component {
       monsters: [
 
       ],
-      searchValue:""
+      searchValue: ""
     };
   }
 
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
-    .then((response) => response.json())
-    .then((monsters) => this.setState({ monsters }))
+      .then((response) => response.json())
+      .then((monsters) => this.setState({ monsters }))
   }
-  searchMonsters =  (event) =>this.setState({searchValue:event.target.value.toLowerCase()})
+  searchMonsters = (event) => this.setState({ searchValue: event.target.value.toLowerCase() })
   render() {
-const {
-  searchMonsters,
-  state:{monsters,searchValue}
-}=this;
+
+    const {
+      searchMonsters,
+      state: { monsters, searchValue }
+    } = this;
 
     return (<div>
-      <SearchBox onChange={searchMonsters}/>
-      <CardList data={monsters.filter(monster =>monster.name.toLowerCase().includes(searchValue))}/>
+      <SearchBox onChange={searchMonsters} />
+      <CardList data={monsters.filter(monster => monster.name.toLowerCase().includes(searchValue))} />
     </div>);
   }
 }
