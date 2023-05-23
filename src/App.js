@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import CardList from './components/CardList/CardList';
-import SearchBox from './components/SearchBox/SearchBox';
+import CardList from './components/CardList/card-list.component';
+import SearchBox from './components/SearchBox/search-box.component.jsx';
+import "./App.css";
 class App extends Component {
   constructor() {
     super();
@@ -26,8 +27,16 @@ class App extends Component {
     } = this;
 
     return (<div>
-      <SearchBox onChange={searchMonsters} />
-      <CardList data={monsters.filter(monster => monster.name.toLowerCase().includes(searchValue))} />
+      <h1 className='app-title'>Monster Rolodex</h1>
+      <SearchBox 
+      onChange={searchMonsters}  
+      placeholder={'Search Monsters'} 
+      className="search-box"
+      />
+      <CardList 
+      data={
+        monsters.filter(monster => monster.name.toLowerCase().includes(searchValue))} 
+      />
     </div>);
   }
 }

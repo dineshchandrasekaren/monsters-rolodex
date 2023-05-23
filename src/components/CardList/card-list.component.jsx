@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import Card from '../Card/Card';
-
+import Card from '../Card/card.component';
+import "./card-list.styles.css"
 class CardList extends Component {
     state = {}
     render() {
-        console.log(this.props.data);
-        return (<React.Fragment>
+        return (<div className='card-list'>
             {this.props.data.map((monster) =>
-                <Card {...monster} />
+                <Card key={monster.id} {...monster} />
             )}
-        </React.Fragment>);
+        </div>);
     }
 }
 
